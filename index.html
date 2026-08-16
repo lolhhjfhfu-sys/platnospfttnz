@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>TNZ1ER52 SOFT</title>
+
+<style>
+:root {
+    --bg: #07070a;
+    --card: #111117;
+    --text: #ffffff;
+    --muted: #999999;
+    --main: #a900ff;
+    --main2: #6200ff;
+    --border: rgba(180, 0, 255, .35);
+}
+
+/* ТЕМЫ */
+
+body.white {
+    --bg: #f5f5f5;
+    --card: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --main: #555555;
+    --main2: #222222;
+    --border: rgba(0,0,0,.15);
+}
+
+body.dark {
+    --bg: #080808;
+    --card: #111111;
+    --text: #ffffff;
+    --muted: #999999;
+    --main: #777777;
+    --main2: #333333;
+    --border: #333333;
+}
+
+body.neon {
+    --bg: #07000d;
+    --card: #13051c;
+    --text: #ffffff;
+    --muted: #b7a8bd;
+    --main: #d000ff;
+    --main2: #6500ff;
+    --border: rgba(208,0,255,.5);
+}
+
+body.red {
+    --bg: #0d0505;
+    --card: #190909;
+    --text: #ffffff;
+    --muted: #b99b9b;
+    --main: #ff2020;
+    --main2: #9b0000;
+    --border: rgba(255,0,0,.45);
+}
+
+body.blue {
+    --bg: #030810;
+    --card: #081321;
+    --text: #ffffff;
+    --muted: #99a9ba;
+    --main: #008cff;
+    --main2: #004cff;
+    --border: rgba(0,140,255,.45);
+}
+
+body.yellow {
+    --bg: #0c0a02;
+    --card: #171303;
+    --text: #ffffff;
+    --muted: #b9b28e;
+    --main: #ffd000;
+    --main2: #ff8c00;
+    --border: rgba(255,208,0,.45);
+}
+
+body.brown {
+    --bg: #0d0805;
+    --card: #1b1009;
+    --text: #ffffff;
+    --muted: #b9a99c;
+    --main: #b56b35;
+    --main2: #713a18;
+    --border: rgba(181,107,53,.45);
+}
+
+body.weapon {
+    --bg: #090a0b;
+    --card: #121416;
+    --text: #eeeeee;
+    --muted: #909498;
+    --main: #d5d5d5;
+    --main2: #676767;
+    --border: rgba(220,220,220,.3);
+}
+
+/* ОСНОВА */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    transition: .35s;
+}
+
+/* ФОН */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    background-size: 45px 45px;
+    z-index: -1;
+}
+
+/* ШАПКА */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(18px);
+    background: color-mix(in srgb, var(--bg) 80%, transparent);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    color: var(--text);
+
+    text-shadow:
+        0 0 8px var(--main),
+        0 0 25px var(--main);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    padding: 9px 15px;
+    border-radius: 9px;
+
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+
+    min-height: 470px;
+    padding: 90px 25px 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 75px;
+    font-weight: 900;
+    letter-spacing: 3px;
+
+    text-shadow:
+        0 0 10px var(--main),
+        0 0 30px var(--main),
+        0 0 70px var(--main);
+}
+
+.hero p {
+    max-width: 650px;
+    margin-top: 20px;
+
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+.hero-button {
+    display: inline-block;
+
+    margin-top: 30px;
+    padding: 15px 30px;
+
+    border-radius: 12px;
+
+    color: white;
+    text-decoration: none;
+
+    background: linear-gradient(
+        135deg,
+        var(--main2),
+        var(--main)
+    );
+
+    box-shadow: 0 0 25px color-mix(
+        in srgb,
+        var(--main) 50%,
+        transparent
+    );
+
+    transition: .3s;
+}
+
+.hero-button:hover {
+    transform: translateY(-4px);
+}
+
+/* СЕКЦИИ */
+
+.section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 25px 90px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+
+    text-shadow:
+        0 0 15px var(--main);
+}
+
+.section-title p {
+    margin-top: 10px;
+    color: var(--muted);
+}
+
+/* КАРТОЧКИ */
+
+.softs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    position: relative;
+
+    padding: 28px;
+
+    border-radius: 20px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 0 25px color-mix(
+            in srgb,
+            var(--main) 10%,
+            transparent
+        );
+
+    transition: .35s;
+
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--main);
+
+    box-shadow:
+        0 0 30px color-mix(
+            in srgb,
+            var(--main) 35%,
+            transparent
+        );
+}
+
+.icon {
+    width: 70px;
+    height: 70px;
+
+    border-radius: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 34px;
+
+    margin-bottom: 20px;
+
+    background: linear-gradient(
+        135deg,
+        var(--main2),
+        var(--main)
+    );
+
+    box-shadow:
+        0 0 25px color-mix(
+            in srgb,
+            var(--main) 50%,
+            transparent
+        );
+}
+
+.card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.description {
+    min-height: 75px;
+
+    color: var(--muted);
+
+    line-height: 1.5;
+}
+
+.price {
+    margin: 20px 0;
+
+    font-size: 27px;
+    font-weight: bold;
+
+    color: var(--main);
+
+    text-shadow:
+        0 0 10px var(--main);
+}
+
+.status {
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    margin-bottom: 14px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    color: var(--main);
+
+    border: 1px solid var(--border);
+
+    background: color-mix(
+        in srgb,
+        var(--main) 10%,
+        transparent
+    );
+}
+
+.status.develop {
+    color: #ff9b9b;
+    border-color: rgba(255,70,70,.35);
+}
+
+.status.free {
+    color: #00ffa6;
+    border-color: rgba(0,255,166,.35);
+}
+
+/* КНОПКИ */
+
+.button {
+    display: block;
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: white;
+
+    border: 1px solid var(--border);
+
+    background: linear-gradient(
+        135deg,
+        var(--main2),
+        var(--main)
+    );
+
+    transition: .3s;
+
+    font-weight: bold;
+}
+
+.button:hover {
+    transform: scale(1.02);
+
+    box-shadow:
+        0 0 25px color-mix(
+            in srgb,
+            var(--main) 50%,
+            transparent
+        );
+}
+
+.button.disabled {
+    background: #202020;
+    color: #777;
+    border-color: #333;
+    cursor: not-allowed;
+}
+
+/* MINECRAFT */
+
+.minecraft {
+    margin-top: 30px;
+
+    padding: 35px;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+
+    border-radius: 22px;
+
+    background: var(--card);
+
+    border: 1px solid rgba(0,255,170,.35);
+
+    box-shadow:
+        0 0 30px rgba(0,255,170,.08);
+}
+
+.minecraft h3 {
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.minecraft p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.mc-button {
+    display: block;
+
+    text-align: center;
+
+    padding: 17px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    background: linear-gradient(
+        135deg,
+        #00a878,
+        #00e6a0
+    );
+
+    box-shadow:
+        0 0 25px rgba(0,255,180,.3);
+
+    transition: .3s;
+}
+
+.mc-button:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 40px rgba(0,255,180,.5);
+}
+
+/* НАСТРОЙКИ */
+
+.settings {
+    max-width: 900px;
+    margin: auto;
+    padding: 30px;
+
+    border-radius: 20px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+
+    box-shadow:
+        0 0 30px color-mix(
+            in srgb,
+            var(--main) 10%,
+            transparent
+        );
+}
+
+.settings h3 {
+    margin-bottom: 25px;
+    font-size: 25px;
+}
+
+.setting-group {
+    margin-bottom: 25px;
+}
+
+.setting-group h4 {
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.settings-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.settings-buttons button {
+    padding: 11px 17px;
+
+    border-radius: 10px;
+
+    border: 1px solid var(--border);
+
+    background: var(--bg);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.settings-buttons button:hover {
+    background: var(--main);
+    color: white;
+
+    box-shadow:
+        0 0 15px var(--main);
+}
+
+/* ОРУЖЕЙНАЯ ТЕМА */
+
+.weapon-box {
+    margin-top: 25px;
+
+    padding: 25px;
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    background:
+        linear-gradient(
+            135deg,
+            #151719,
+            #090a0b
+        );
+
+    position: relative;
+    overflow: hidden;
+}
+
+.weapon-box::after {
+    content: "///";
+
+    position: absolute;
+
+    right: 25px;
+    bottom: 5px;
+
+    font-size: 70px;
+    font-weight: 900;
+
+    color: rgba(255,255,255,.03);
+}
+
+.weapon-box h4 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.weapon-box p {
+    color: #888;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 30px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    border-top: 1px solid var(--border);
+}
+
+footer span {
+    color: var(--main);
+}
+
+/* РАЗМЕР ШРИФТА */
+
+body.font-small {
+    font-size: 14px;
+}
+
+body.font-medium {
+    font-size: 16px;
+}
+
+body.font-large {
+    font-size: 20px;
+}
+
+body.font-large .hero h1 {
+    font-size: 85px;
+}
+
+/* МОБИЛЬНАЯ ВЕРСИЯ */
+
+@media(max-width: 850px) {
+
+    .softs {
+        grid-template-columns: 1fr;
+    }
+
+    .minecraft {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .section-title h2 {
+        font-size: 30px;
+    }
+}
+</style>
+</head>
+
+<body class="neon font-medium">
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+            TNZ1ER52 SOFT
+        </div>
+
+        <div class="nav-buttons">
+
+            <button onclick="scrollToSettings()">
+                ⚙️ Настройки
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>TNZ1ER52</h1>
+
+    <p>
+        Каталог софтов TNZ1ER52.
+        Project Evolution, Standleo, Standknife
+        и бесплатный софт для Minecraft.
+    </p>
+
+    <a href="#softs" class="hero-button">
+        🚀 Смотреть софты
+    </a>
+
+</section>
+
+
+<!-- СОФТЫ -->
+
+<section class="section" id="softs">
+
+    <div class="section-title">
+
+        <h2>🔥 Наши софты</h2>
+
+        <p>
+            Выберите интересующий вас проект
+        </p>
+
+    </div>
+
+
+    <div class="softs">
+
+
+        <!-- PROJECT EVOLUTION -->
+
+        <div class="card">
+
+            <div class="icon">
+                ⚡
+            </div>
+
+            <span class="status">
+                ДОСТУПЕН
+            </span>
+
+            <h3>
+                Project Evolution
+            </h3>
+
+            <p class="description">
+                Софт для Project Evolution
+                с удобным интерфейсом.
+            </p>
+
+            <div class="price">
+                80 ₽
+            </div>
+
+            <a href="#" class="button">
+                💳 Купить
+            </a>
+
+        </div>
+
+
+        <!-- STANDLEO -->
+
+        <div class="card">
+
+            <div class="icon">
+                ◆
+            </div>
+
+            <span class="status">
+                ДОСТУПЕН
+            </span>
+
+            <h3>
+                Standleo
+            </h3>
+
+            <p class="description">
+                Софт Standleo.
+                Подробная информация о проекте
+                появится здесь.
+            </p>
+
+            <div class="price">
+                65 ₽
+            </div>
+
+            <a href="#" class="button">
+                💳 Купить
+            </a>
+
+        </div>
+
+
+        <!-- STANDKNIFE -->
+
+        <div class="card">
+
+            <div class="icon">
+                ✦
+            </div>
+
+            <span class="status develop">
+                ⚙️ В РАЗРАБОТКЕ
+            </span>
+
+            <h3>
+                Standknife
+            </h3>
+
+            <p class="description">
+                Standknife ещё находится
+                в разработке.
+                Следите за обновлениями.
+            </p>
+
+            <div class="price">
+                65 ₽
+            </div>
+
+            <a class="button disabled">
+                🔒 Скачать нельзя
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- MINECRAFT -->
+
+    <div class="minecraft">
+
+        <div>
+
+            <span class="status free">
+                🟢 БЕСПЛАТНО
+            </span>
+
+            <h3>
+                ⛏️ Minecraft
+            </h3>
+
+            <p>
+                Бесплатный софт для Minecraft.
+                Скачать его можно бесплатно
+                по кнопке справа.
+            </p>
+
+        </div>
+
+
+        <a
+            class="mc-button"
+            href="https://drive.google.com/file/d/1DW-LTLa6w1fZ3WEepnjPbISW6iHAG8So/view"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            🎮 Софт на Minecraft — бесплатно
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- НАСТРОЙКИ -->
+
+<section class="section" id="settings">
+
+    <div class="section-title">
+
+        <h2>
+            ⚙️ Настройки
+        </h2>
+
+        <p>
+            Настрой внешний вид сайта под себя
+        </p>
+
+    </div>
+
+
+    <div class="settings">
+
+        <!-- РАЗМЕР -->
+
+        <div class="setting-group">
+
+            <h4>
+                🔤 Размер текста
+            </h4>
+
+            <div class="settings-buttons">
+
+                <button onclick="setFont('font-small')">
+                    Маленький
+                </button>
+
+                <button onclick="setFont('font-medium')">
+                    Средний
+                </button>
+
+                <button onclick="setFont('font-large')">
+                    Большой
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ТЕМЫ -->
+
+        <div class="setting-group">
+
+            <h4>
+                🎨 Тема сайта
+            </h4>
+
+            <div class="settings-buttons">
+
+                <button onclick="setTheme('white')">
+                    ⚪ Белая
+                </button>
+
+                <button onclick="setTheme('dark')">
+                    ⚫ Тёмная
+                </button>
+
+                <button onclick="setTheme('neon')">
+                    🟣 Неоновая
+                </button>
+
+                <button onclick="setTheme('red')">
+                    🔴 Красная
+                </button>
+
+                <button onclick="setTheme('blue')">
+                    🔵 Синяя
+                </button>
+
+                <button onclick="setTheme('yellow')">
+                    🟡 Жёлтая
+                </button>
+
+                <button onclick="setTheme('brown')">
+                    🟤 Коричневая
+                </button>
+
+                <button onclick="setTheme('weapon')">
+                    🔫 Оружейная
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ОРУЖЕЙНАЯ ТЕМА -->
+
+        <div class="weapon-box">
+
+            <h4>
+                🔫 Оружейная тема
+            </h4>
+
+            <p>
+                Тёмный тактический интерфейс
+                с элементами оружейного меню.
+                Выберите «Оружейная» выше.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- О ПРОЕКТЕ -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            📦 О проекте
+        </h2>
+
+        <p>
+            TNZ1ER52 SOFT — каталог наших проектов.
+            Новые обновления и софты будут
+            появляться постепенно.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    © 2026
+    <span>
+        TNZ1ER52 SOFT
+    </span>
+
+    · Все права защищены
+
+</footer>
+
+
+<script>
+
+/* ТЕМЫ */
+
+function setTheme(theme) {
+
+    document.body.classList.remove(
+        "white",
+        "dark",
+        "neon",
+        "red",
+        "blue",
+        "yellow",
+        "brown",
+        "weapon"
+    );
+
+    document.body.classList.add(theme);
+
+    localStorage.setItem(
+        "tnzTheme",
+        theme
+    );
+}
+
+
+/* РАЗМЕР ТЕКСТА */
+
+function setFont(size) {
+
+    document.body.classList.remove(
+        "font-small",
+        "font-medium",
+        "font-large"
+    );
+
+    document.body.classList.add(size);
+
+    localStorage.setItem(
+        "tnzFont",
+        size
+    );
+}
+
+
+/* ПЕРЕХОД К НАСТРОЙКАМ */
+
+function scrollToSettings() {
+
+    document
+        .getElementById("settings")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* СОХРАНЕНИЕ НАСТРОЕК */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        const savedTheme =
+            localStorage.getItem("tnzTheme");
+
+        const savedFont =
+            localStorage.getItem("tnzFont");
+
+        if (savedTheme) {
+
+            document.body.classList.remove(
+                "white",
+                "dark",
+                "neon",
+                "red",
+                "blue",
+                "yellow",
+                "brown",
+                "weapon"
+            );
+
+            document.body.classList.add(
+                savedTheme
+            );
+
+        }
+
+        if (savedFont) {
+
+            document.body.classList.remove(
+                "font-small",
+                "font-medium",
+                "font-large"
+            );
+
+            document.body.classList.add(
+                savedFont
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
