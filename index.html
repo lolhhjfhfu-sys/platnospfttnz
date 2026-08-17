@@ -2,1141 +2,2963 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>TNZ1ER52 SOFT</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08080d">
+<title>TNZQASAQ Store</title>
 
 <style>
-:root {
-    --bg: #07070a;
-    --card: #111117;
-    --text: #ffffff;
-    --muted: #999999;
-    --main: #a900ff;
-    --main2: #6200ff;
-    --border: rgba(180, 0, 255, .35);
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
-/* ТЕМЫ */
-
-body.white {
-    --bg: #f5f5f5;
-    --card: #ffffff;
-    --text: #111111;
-    --muted: #666666;
-    --main: #555555;
-    --main2: #222222;
-    --border: rgba(0,0,0,.15);
+:root{
+    --bg:#07070c;
+    --bg2:#101018;
+    --card:rgba(20,20,30,.72);
+    --card2:rgba(31,31,45,.78);
+    --text:#fff;
+    --muted:#858797;
+    --accent:#8b4dff;
+    --accent2:#5c20d4;
+    --green:#48df8b;
+    --red:#ff5268;
+    --yellow:#ffc857;
+    --border:rgba(255,255,255,.08);
 }
 
-body.dark {
-    --bg: #080808;
-    --card: #111111;
-    --text: #ffffff;
-    --muted: #999999;
-    --main: #777777;
-    --main2: #333333;
-    --border: #333333;
+body.light{
+    --bg:#f4f5f9;
+    --bg2:#fff;
+    --card:rgba(255,255,255,.86);
+    --card2:#eceef5;
+    --text:#11121a;
+    --muted:#6e7280;
+    --border:rgba(0,0,0,.08);
 }
 
-body.neon {
-    --bg: #07000d;
-    --card: #13051c;
-    --text: #ffffff;
-    --muted: #b7a8bd;
-    --main: #d000ff;
-    --main2: #6500ff;
-    --border: rgba(208,0,255,.5);
+body.blue{
+    --accent:#3d8bff;
+    --accent2:#1456c9;
 }
 
-body.red {
-    --bg: #0d0505;
-    --card: #190909;
-    --text: #ffffff;
-    --muted: #b99b9b;
-    --main: #ff2020;
-    --main2: #9b0000;
-    --border: rgba(255,0,0,.45);
+body.red{
+    --accent:#ff4961;
+    --accent2:#b51e36;
 }
 
-body.blue {
-    --bg: #030810;
-    --card: #081321;
-    --text: #ffffff;
-    --muted: #99a9ba;
-    --main: #008cff;
-    --main2: #004cff;
-    --border: rgba(0,140,255,.45);
+html{
+    scroll-behavior:smooth;
 }
 
-body.yellow {
-    --bg: #0c0a02;
-    --card: #171303;
-    --text: #ffffff;
-    --muted: #b9b28e;
-    --main: #ffd000;
-    --main2: #ff8c00;
-    --border: rgba(255,208,0,.45);
-}
-
-body.brown {
-    --bg: #0d0805;
-    --card: #1b1009;
-    --text: #ffffff;
-    --muted: #b9a99c;
-    --main: #b56b35;
-    --main2: #713a18;
-    --border: rgba(181,107,53,.45);
-}
-
-body.weapon {
-    --bg: #090a0b;
-    --card: #121416;
-    --text: #eeeeee;
-    --muted: #909498;
-    --main: #d5d5d5;
-    --main2: #676767;
-    --border: rgba(220,220,220,.3);
-}
-
-/* ОСНОВА */
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    transition: .35s;
-}
-
-/* ФОН */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-    background-size: 45px 45px;
-    z-index: -1;
-}
-
-/* ШАПКА */
-
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(18px);
-    background: color-mix(in srgb, var(--bg) 80%, transparent);
-    border-bottom: 1px solid var(--border);
-}
-
-.nav {
-    max-width: 1200px;
-    margin: auto;
-    padding: 18px 25px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: 900;
-    letter-spacing: 1px;
-
-    color: var(--text);
-
-    text-shadow:
-        0 0 8px var(--main),
-        0 0 25px var(--main);
-}
-
-.nav-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.nav-buttons button {
-    padding: 9px 15px;
-    border-radius: 9px;
-
-    border: 1px solid var(--border);
-    background: var(--card);
-    color: var(--text);
-
-    cursor: pointer;
-}
-
-/* HERO */
-
-.hero {
-    max-width: 1200px;
-    margin: auto;
-
-    min-height: 470px;
-    padding: 90px 25px 60px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 75px;
-    font-weight: 900;
-    letter-spacing: 3px;
-
-    text-shadow:
-        0 0 10px var(--main),
-        0 0 30px var(--main),
-        0 0 70px var(--main);
-}
-
-.hero p {
-    max-width: 650px;
-    margin-top: 20px;
-
-    color: var(--muted);
-    line-height: 1.6;
-    font-size: 18px;
-}
-
-.hero-button {
-    display: inline-block;
-
-    margin-top: 30px;
-    padding: 15px 30px;
-
-    border-radius: 12px;
-
-    color: white;
-    text-decoration: none;
-
-    background: linear-gradient(
-        135deg,
-        var(--main2),
-        var(--main)
-    );
-
-    box-shadow: 0 0 25px color-mix(
-        in srgb,
-        var(--main) 50%,
-        transparent
-    );
-
-    transition: .3s;
-}
-
-.hero-button:hover {
-    transform: translateY(-4px);
-}
-
-/* СЕКЦИИ */
-
-.section {
-    max-width: 1200px;
-    margin: auto;
-    padding: 60px 25px 90px;
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 38px;
-
-    text-shadow:
-        0 0 15px var(--main);
-}
-
-.section-title p {
-    margin-top: 10px;
-    color: var(--muted);
-}
-
-/* КАРТОЧКИ */
-
-.softs {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-}
-
-.card {
-    position: relative;
-
-    padding: 28px;
-
-    border-radius: 20px;
-
-    background: var(--card);
-    border: 1px solid var(--border);
-
-    box-shadow:
-        0 0 25px color-mix(
-            in srgb,
-            var(--main) 10%,
-            transparent
-        );
-
-    transition: .35s;
-
-    overflow: hidden;
-}
-
-.card:hover {
-    transform: translateY(-8px);
-
-    border-color: var(--main);
-
-    box-shadow:
-        0 0 30px color-mix(
-            in srgb,
-            var(--main) 35%,
-            transparent
-        );
-}
-
-.icon {
-    width: 70px;
-    height: 70px;
-
-    border-radius: 18px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 34px;
-
-    margin-bottom: 20px;
-
-    background: linear-gradient(
-        135deg,
-        var(--main2),
-        var(--main)
-    );
-
-    box-shadow:
-        0 0 25px color-mix(
-            in srgb,
-            var(--main) 50%,
-            transparent
-        );
-}
-
-.card h3 {
-    font-size: 24px;
-    margin-bottom: 12px;
-}
-
-.description {
-    min-height: 75px;
-
-    color: var(--muted);
-
-    line-height: 1.5;
-}
-
-.price {
-    margin: 20px 0;
-
-    font-size: 27px;
-    font-weight: bold;
-
-    color: var(--main);
-
-    text-shadow:
-        0 0 10px var(--main);
-}
-
-.status {
-    display: inline-block;
-
-    padding: 6px 11px;
-
-    margin-bottom: 14px;
-
-    border-radius: 20px;
-
-    font-size: 11px;
-    font-weight: bold;
-
-    color: var(--main);
-
-    border: 1px solid var(--border);
-
-    background: color-mix(
-        in srgb,
-        var(--main) 10%,
-        transparent
-    );
-}
-
-.status.develop {
-    color: #ff9b9b;
-    border-color: rgba(255,70,70,.35);
-}
-
-.status.free {
-    color: #00ffa6;
-    border-color: rgba(0,255,166,.35);
-}
-
-/* КНОПКИ */
-
-.button {
-    display: block;
-
-    width: 100%;
-
-    padding: 13px;
-
-    border-radius: 10px;
-
-    text-align: center;
-
-    text-decoration: none;
-
-    color: white;
-
-    border: 1px solid var(--border);
-
-    background: linear-gradient(
-        135deg,
-        var(--main2),
-        var(--main)
-    );
-
-    transition: .3s;
-
-    font-weight: bold;
-}
-
-.button:hover {
-    transform: scale(1.02);
-
-    box-shadow:
-        0 0 25px color-mix(
-            in srgb,
-            var(--main) 50%,
-            transparent
-        );
-}
-
-.button.disabled {
-    background: #202020;
-    color: #777;
-    border-color: #333;
-    cursor: not-allowed;
-}
-
-/* MINECRAFT */
-
-.minecraft {
-    margin-top: 30px;
-
-    padding: 35px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    align-items: center;
-
-    border-radius: 22px;
-
-    background: var(--card);
-
-    border: 1px solid rgba(0,255,170,.35);
-
-    box-shadow:
-        0 0 30px rgba(0,255,170,.08);
-}
-
-.minecraft h3 {
-    font-size: 30px;
-    margin-bottom: 12px;
-}
-
-.minecraft p {
-    color: var(--muted);
-    line-height: 1.6;
-}
-
-.mc-button {
-    display: block;
-
-    text-align: center;
-
-    padding: 17px;
-
-    border-radius: 12px;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-weight: bold;
-
-    background: linear-gradient(
-        135deg,
-        #00a878,
-        #00e6a0
-    );
-
-    box-shadow:
-        0 0 25px rgba(0,255,180,.3);
-
-    transition: .3s;
-}
-
-.mc-button:hover {
-    transform: scale(1.03);
-
-    box-shadow:
-        0 0 40px rgba(0,255,180,.5);
-}
-
-/* НАСТРОЙКИ */
-
-.settings {
-    max-width: 900px;
-    margin: auto;
-    padding: 30px;
-
-    border-radius: 20px;
-
-    background: var(--card);
-    border: 1px solid var(--border);
-
-    box-shadow:
-        0 0 30px color-mix(
-            in srgb,
-            var(--main) 10%,
-            transparent
-        );
-}
-
-.settings h3 {
-    margin-bottom: 25px;
-    font-size: 25px;
-}
-
-.setting-group {
-    margin-bottom: 25px;
-}
-
-.setting-group h4 {
-    margin-bottom: 12px;
-    color: var(--muted);
-}
-
-.settings-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.settings-buttons button {
-    padding: 11px 17px;
-
-    border-radius: 10px;
-
-    border: 1px solid var(--border);
-
-    background: var(--bg);
-
-    color: var(--text);
-
-    cursor: pointer;
-
-    transition: .25s;
-}
-
-.settings-buttons button:hover {
-    background: var(--main);
-    color: white;
-
-    box-shadow:
-        0 0 15px var(--main);
-}
-
-/* ОРУЖЕЙНАЯ ТЕМА */
-
-.weapon-box {
-    margin-top: 25px;
-
-    padding: 25px;
-
-    border: 1px solid rgba(255,255,255,.15);
-
+body{
+    min-height:100vh;
     background:
-        linear-gradient(
-            135deg,
-            #151719,
-            #090a0b
-        );
-
-    position: relative;
-    overflow: hidden;
+    radial-gradient(
+        circle at 10% 0%,
+        color-mix(in srgb,var(--accent) 18%,transparent),
+        transparent 30%
+    ),
+    radial-gradient(
+        circle at 90% 70%,
+        color-mix(in srgb,var(--accent) 13%,transparent),
+        transparent 30%
+    ),
+    var(--bg);
+    color:var(--text);
+    font-family:Arial,sans-serif;
+    overflow-x:hidden;
+    transition:.3s;
 }
 
-.weapon-box::after {
-    content: "///";
-
-    position: absolute;
-
-    right: 25px;
-    bottom: 5px;
-
-    font-size: 70px;
-    font-weight: 900;
-
-    color: rgba(255,255,255,.03);
+body:before,
+body:after{
+    content:"";
+    position:fixed;
+    z-index:-1;
+    width:280px;
+    height:280px;
+    border-radius:50%;
+    background:var(--accent);
+    opacity:.06;
+    filter:blur(70px);
+    animation:float 12s ease-in-out infinite alternate;
 }
 
-.weapon-box h4 {
-    font-size: 22px;
-    margin-bottom: 8px;
+body:before{
+    left:-120px;
+    top:10%;
 }
 
-.weapon-box p {
-    color: #888;
+body:after{
+    right:-120px;
+    bottom:10%;
+    animation-delay:-5s;
 }
 
-/* FOOTER */
-
-footer {
-    padding: 30px;
-
-    text-align: center;
-
-    color: var(--muted);
-
-    border-top: 1px solid var(--border);
+@keyframes float{
+    from{transform:translate(0,0)}
+    to{transform:translate(70px,-50px)}
 }
 
-footer span {
-    color: var(--main);
+.app{
+    width:100%;
+    max-width:540px;
+    margin:auto;
+    min-height:100vh;
+    padding-bottom:100px;
 }
 
-/* РАЗМЕР ШРИФТА */
-
-body.font-small {
-    font-size: 14px;
+.header{
+    height:70px;
+    padding:12px 16px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter:blur(20px);
 }
 
-body.font-medium {
-    font-size: 16px;
+.logo{
+    font-size:20px;
+    font-weight:1000;
 }
 
-body.font-large {
-    font-size: 20px;
+.logo small{
+    display:block;
+    color:var(--muted);
+    font-size:7px;
+    letter-spacing:2px;
+    margin-top:3px;
 }
 
-body.font-large .hero h1 {
-    font-size: 85px;
+.avatar-mini{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 25px
+    color-mix(in srgb,var(--accent) 35%,transparent);
 }
 
-/* МОБИЛЬНАЯ ВЕРСИЯ */
+.content{
+    padding:0 15px;
+}
 
-@media(max-width: 850px) {
+.page{
+    display:none;
+}
 
-    .softs {
-        grid-template-columns: 1fr;
+.page.active{
+    display:block;
+    animation:pageIn .28s ease;
+}
+
+@keyframes pageIn{
+    from{
+        opacity:0;
+        transform:translateY(10px);
     }
-
-    .minecraft {
-        grid-template-columns: 1fr;
+    to{
+        opacity:1;
+        transform:none;
     }
+}
 
-    .hero h1 {
-        font-size: 50px;
-    }
+.title{
+    font-size:20px;
+    font-weight:1000;
+    margin:20px 0 13px;
+}
 
-    .nav {
-        flex-direction: column;
-        gap: 15px;
-    }
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(18px);
+    border-radius:21px;
+    box-shadow:0 15px 45px rgba(0,0,0,.22);
+}
 
-    .section-title h2 {
-        font-size: 30px;
-    }
+.card:hover{
+    border-color:color-mix(
+        in srgb,
+        var(--accent) 25%,
+        transparent
+    );
+}
+
+button{
+    font-family:inherit;
+}
+
+.live{
+    padding:17px;
+    margin-bottom:12px;
+}
+
+.live-title{
+    color:var(--green);
+    font-size:11px;
+    font-weight:bold;
+}
+
+.dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:var(--green);
+    box-shadow:0 0 12px var(--green);
+    margin-right:6px;
+    animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+    50%{opacity:.4}
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    margin-top:16px;
+}
+
+.stat b{
+    display:block;
+    font-size:14px;
+}
+
+.stat span{
+    display:block;
+    color:var(--muted);
+    font-size:8px;
+    margin-top:3px;
+}
+
+.search{
+    height:47px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:0 14px;
+    background:var(--card2);
+    border-radius:14px;
+}
+
+.search input{
+    flex:1;
+    background:none;
+    border:0;
+    outline:0;
+    color:var(--text);
+}
+
+.filters{
+    display:flex;
+    gap:7px;
+    overflow-x:auto;
+    padding:10px 0;
+}
+
+.filters::-webkit-scrollbar{
+    display:none;
+}
+
+.filter{
+    white-space:nowrap;
+    border:0;
+    border-radius:10px;
+    padding:9px 12px;
+    background:var(--card2);
+    color:var(--muted);
+    cursor:pointer;
+}
+
+.filter.active{
+    color:#fff;
+    background:var(--accent);
+}
+
+.product{
+    padding:15px;
+    margin-bottom:10px;
+    transition:.25s;
+}
+
+.product:hover{
+    transform:translateY(-4px);
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.25),
+    0 0 25px
+    color-mix(in srgb,var(--accent) 12%,transparent);
+}
+
+.product-top{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.icon{
+    width:53px;
+    height:53px;
+    flex:none;
+    border-radius:15px;
+    background:color-mix(
+        in srgb,
+        var(--accent) 15%,
+        transparent
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.product-name{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.version{
+    color:var(--muted);
+    font-size:9px;
+    margin-top:4px;
+}
+
+.status{
+    margin-left:auto;
+    padding:6px 8px;
+    border-radius:8px;
+    font-size:7px;
+    white-space:nowrap;
+}
+
+.available{
+    color:var(--green);
+    background:rgba(72,223,139,.1);
+}
+
+.soon{
+    color:var(--yellow);
+    background:rgba(255,200,87,.1);
+}
+
+.dev{
+    color:var(--yellow);
+    background:rgba(255,200,87,.1);
+}
+
+.description{
+    color:var(--muted);
+    font-size:10px;
+    line-height:1.6;
+    margin:12px 0;
+}
+
+.product-bottom{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.price{
+    font-size:16px;
+    font-weight:bold;
+}
+
+.buy,
+.action,
+.submit{
+    border:0;
+    color:#fff;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    cursor:pointer;
+    transition:.2s;
+    box-shadow:
+    0 8px 25px
+    color-mix(in srgb,var(--accent) 25%,transparent);
+}
+
+.buy{
+    padding:10px 14px;
+    border-radius:11px;
+    font-size:9px;
+    font-weight:bold;
+}
+
+.buy:hover,
+.action:hover,
+.submit:hover{
+    transform:translateY(-2px);
+}
+
+.buy.disabled{
+    background:var(--card2);
+    color:var(--muted);
+    box-shadow:none;
+    cursor:not-allowed;
+}
+
+.navbar{
+    position:fixed;
+    z-index:100;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 20px);
+    max-width:520px;
+    height:66px;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-radius:22px;
+    background:rgba(17,17,25,.9);
+    backdrop-filter:blur(22px);
+    border:1px solid var(--border);
+}
+
+body.light .navbar{
+    background:rgba(255,255,255,.9);
+}
+
+.nav{
+    text-align:center;
+    color:#777987;
+    font-size:8px;
+    cursor:pointer;
+}
+
+.nav-icon{
+    display:block;
+    font-size:19px;
+    margin-bottom:3px;
+}
+
+.nav.active{
+    color:var(--text);
+}
+
+.cart-badge{
+    position:absolute;
+    margin-left:-5px;
+    margin-top:-4px;
+    min-width:14px;
+    height:14px;
+    padding:0 3px;
+    border-radius:8px;
+    background:var(--red);
+    color:white;
+    font-size:7px;
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.profile{
+    padding:20px;
+    text-align:center;
+}
+
+.avatar{
+    width:75px;
+    height:75px;
+    margin:auto;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        var(--accent),
+        var(--accent2)
+    );
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.profile-name{
+    margin-top:10px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.profile-id{
+    color:var(--muted);
+    font-size:9px;
+    margin-top:5px;
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+    margin-top:15px;
+}
+
+.profile-stat{
+    padding:13px;
+    background:var(--card2);
+    border-radius:13px;
+    text-align:left;
+}
+
+.profile-stat b{
+    display:block;
+    font-size:15px;
+}
+
+.profile-stat span{
+    color:var(--muted);
+    font-size:8px;
+}
+
+.menu{
+    margin-top:12px;
+}
+
+.menu-item{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:15px;
+    margin-bottom:7px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:15px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.menu-item:hover{
+    transform:translateX(3px);
+    border-color:var(--accent);
+}
+
+.menu-item span:nth-child(2){
+    flex:1;
+    font-size:10px;
+}
+
+.modal-bg{
+    position:fixed;
+    z-index:300;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(10px);
+}
+
+.modal-bg.show{
+    display:flex;
+}
+
+.modal{
+    width:100%;
+    max-width:500px;
+    max-height:90vh;
+    overflow:auto;
+    padding:20px;
+    border-radius:25px;
+    background:var(--bg2);
+    border:1px solid var(--border);
+}
+
+.modal-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.modal-title h2{
+    font-size:18px;
+}
+
+.close{
+    width:35px;
+    height:35px;
+    border:0;
+    border-radius:50%;
+    background:var(--card2);
+    color:var(--text);
+    font-size:18px;
+    cursor:pointer;
+}
+
+.auth-tabs{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:5px;
+    background:var(--card2);
+    padding:5px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+
+.auth-tab{
+    padding:10px;
+    border:0;
+    border-radius:9px;
+    background:transparent;
+    color:var(--muted);
+    cursor:pointer;
+}
+
+.auth-tab.active{
+    background:var(--accent);
+    color:#fff;
+}
+
+.auth-form{
+    display:none;
+}
+
+.auth-form.active{
+    display:block;
+}
+
+.label{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
+    margin:10px 0 5px;
+}
+
+.input{
+    width:100%;
+    height:45px;
+    padding:0 12px;
+    border-radius:11px;
+    border:1px solid var(--border);
+    outline:0;
+    background:var(--card2);
+    color:var(--text);
+}
+
+.submit{
+    width:100%;
+    height:47px;
+    margin-top:15px;
+    border-radius:12px;
+    font-weight:bold;
+}
+
+.action{
+    width:100%;
+    padding:13px;
+    border-radius:13px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+.empty{
+    padding:35px 15px;
+    text-align:center;
+    color:var(--muted);
+    font-size:11px;
+}
+
+.theme-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+}
+
+.theme{
+    height:55px;
+    border:0;
+    border-radius:13px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.theme.purple{
+    background:linear-gradient(135deg,#914cff,#5b20d1);
+}
+
+.theme.blue{
+    background:linear-gradient(135deg,#3d8bff,#1456c9);
+}
+
+.theme.red{
+    background:linear-gradient(135deg,#ff4961,#b51e36);
+}
+
+.light-switch{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    padding:14px;
+    margin-top:10px;
+    border:0;
+    border-radius:14px;
+    background:var(--card2);
+    color:var(--text);
+    cursor:pointer;
+}
+
+.toast{
+    position:fixed;
+    z-index:1000;
+    top:15px;
+    left:50%;
+    transform:translate(-50%,-80px);
+    padding:12px 16px;
+    border-radius:13px;
+    background:#1b1c25;
+    color:white;
+    font-size:10px;
+    transition:.3s;
+}
+
+.toast.show{
+    transform:translate(-50%,0);
+}
+
+.key{
+    padding:12px;
+    background:var(--card2);
+    border-radius:12px;
+    margin-top:10px;
+    word-break:break-all;
+    font-family:monospace;
+    font-size:10px;
+}
+
+.success{
+    text-align:center;
+    padding:20px;
+}
+
+.success-icon{
+    font-size:60px;
+    color:var(--green);
 }
 </style>
 </head>
 
-<body class="neon font-medium">
+<body>
 
-<header>
+<div class="app">
 
-    <div class="nav">
+<header class="header">
 
-        <div class="logo">
-            TNZ1ER52 SOFT
-        </div>
+    <div class="logo">
+        TNZQASAQ
+        <small>SOFTWARE STORE</small>
+    </div>
 
-        <div class="nav-buttons">
-
-            <button onclick="scrollToSettings()">
-                ⚙️ Настройки
-            </button>
-
-        </div>
-
+    <div
+        class="avatar-mini"
+        id="headerAvatar"
+        onclick="openPage('profile')">
+        ?
     </div>
 
 </header>
 
+<main class="content">
 
-<!-- HERO -->
+<!-- HOME -->
 
-<section class="hero">
+<section id="home" class="page active">
 
-    <h1>TNZ1ER52</h1>
+<div class="live card">
 
-    <p>
-        Каталог софтов TNZ1ER52.
-        Project Evolution, Standleo, Standknife
-        и бесплатный софт для Minecraft.
-    </p>
+    <div class="live-title">
+        <span class="dot"></span>
+        Все системы работают
+    </div>
 
-    <a href="#softs" class="hero-button">
-        🚀 Смотреть софты
-    </a>
+    <div class="stats">
+
+        <div class="stat">
+            <b>24</b>
+            <span>онлайн</span>
+        </div>
+
+        <div class="stat">
+            <b>4</b>
+            <span>проекта</span>
+        </div>
+
+        <div class="stat">
+            <b>1 284</b>
+            <span>покупок</span>
+        </div>
+
+        <div class="stat">
+            <b>24/7</b>
+            <span>поддержка</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="search">
+    🔍
+    <input
+        id="search"
+        placeholder="Поиск по каталогу..."
+        oninput="searchProducts()">
+</div>
+
+<div class="filters">
+
+<button class="filter active"
+onclick="filterProducts('all',this)">
+Все
+</button>
+
+<button class="filter"
+onclick="filterProducts('available',this)">
+🟢 Доступно
+</button>
+
+<button class="filter"
+onclick="filterProducts('soon',this)">
+🟡 Скоро
+</button>
+
+<button class="filter"
+onclick="filterProducts('dev',this)">
+🛠 Разработка
+</button>
+
+</div>
+
+<div class="title">🔥 Каталог</div>
+
+<div id="products"></div>
 
 </section>
 
 
-<!-- СОФТЫ -->
+<!-- CART -->
 
-<section class="section" id="softs">
+<section id="cart" class="page">
 
-    <div class="section-title">
+<div class="title">🛒 Корзина</div>
 
-        <h2>🔥 Наши софты</h2>
-
-        <p>
-            Выберите интересующий вас проект
-        </p>
-
-    </div>
-
-
-    <div class="softs">
-
-
-        <!-- PROJECT EVOLUTION -->
-
-        <div class="card">
-
-            <div class="icon">
-                ⚡
-            </div>
-
-            <span class="status">
-                ДОСТУПЕН
-            </span>
-
-            <h3>
-                Project Evolution
-            </h3>
-
-            <p class="description">
-                Софт для Project Evolution
-                с удобным интерфейсом.
-            </p>
-
-            <div class="price">
-                80 ₽
-            </div>
-
-            <a href="#" class="button">
-                💳 Купить
-            </a>
-
-        </div>
-
-
-        <!-- STANDLEO -->
-
-        <div class="card">
-
-            <div class="icon">
-                ◆
-            </div>
-
-            <span class="status">
-                ДОСТУПЕН
-            </span>
-
-            <h3>
-                Standleo
-            </h3>
-
-            <p class="description">
-                Софт Standleo.
-                Подробная информация о проекте
-                появится здесь.
-            </p>
-
-            <div class="price">
-                65 ₽
-            </div>
-
-            <a href="#" class="button">
-                💳 Купить
-            </a>
-
-        </div>
-
-
-        <!-- STANDKNIFE -->
-
-        <div class="card">
-
-            <div class="icon">
-                ✦
-            </div>
-
-            <span class="status develop">
-                ⚙️ В РАЗРАБОТКЕ
-            </span>
-
-            <h3>
-                Standknife
-            </h3>
-
-            <p class="description">
-                Standknife ещё находится
-                в разработке.
-                Следите за обновлениями.
-            </p>
-
-            <div class="price">
-                65 ₽
-            </div>
-
-            <a class="button disabled">
-                🔒 Скачать нельзя
-            </a>
-
-        </div>
-
-
-    </div>
-
-
-    <!-- MINECRAFT -->
-
-    <div class="minecraft">
-
-        <div>
-
-            <span class="status free">
-                🟢 БЕСПЛАТНО
-            </span>
-
-            <h3>
-                ⛏️ Minecraft
-            </h3>
-
-            <p>
-                Бесплатный софт для Minecraft.
-                Скачать его можно бесплатно
-                по кнопке справа.
-            </p>
-
-        </div>
-
-
-        <a
-            class="mc-button"
-            href="https://drive.google.com/file/d/1DW-LTLa6w1fZ3WEepnjPbISW6iHAG8So/view"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            🎮 Софт на Minecraft — бесплатно
-        </a>
-
-    </div>
+<div id="cartList"></div>
 
 </section>
 
 
-<!-- НАСТРОЙКИ -->
+<!-- ORDERS -->
 
-<section class="section" id="settings">
+<section id="orders" class="page">
 
-    <div class="section-title">
+<div class="title">📦 История покупок</div>
 
-        <h2>
-            ⚙️ Настройки
-        </h2>
-
-        <p>
-            Настрой внешний вид сайта под себя
-        </p>
-
-    </div>
-
-
-    <div class="settings">
-
-        <!-- РАЗМЕР -->
-
-        <div class="setting-group">
-
-            <h4>
-                🔤 Размер текста
-            </h4>
-
-            <div class="settings-buttons">
-
-                <button onclick="setFont('font-small')">
-                    Маленький
-                </button>
-
-                <button onclick="setFont('font-medium')">
-                    Средний
-                </button>
-
-                <button onclick="setFont('font-large')">
-                    Большой
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- ТЕМЫ -->
-
-        <div class="setting-group">
-
-            <h4>
-                🎨 Тема сайта
-            </h4>
-
-            <div class="settings-buttons">
-
-                <button onclick="setTheme('white')">
-                    ⚪ Белая
-                </button>
-
-                <button onclick="setTheme('dark')">
-                    ⚫ Тёмная
-                </button>
-
-                <button onclick="setTheme('neon')">
-                    🟣 Неоновая
-                </button>
-
-                <button onclick="setTheme('red')">
-                    🔴 Красная
-                </button>
-
-                <button onclick="setTheme('blue')">
-                    🔵 Синяя
-                </button>
-
-                <button onclick="setTheme('yellow')">
-                    🟡 Жёлтая
-                </button>
-
-                <button onclick="setTheme('brown')">
-                    🟤 Коричневая
-                </button>
-
-                <button onclick="setTheme('weapon')">
-                    🔫 Оружейная
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- ОРУЖЕЙНАЯ ТЕМА -->
-
-        <div class="weapon-box">
-
-            <h4>
-                🔫 Оружейная тема
-            </h4>
-
-            <p>
-                Тёмный тактический интерфейс
-                с элементами оружейного меню.
-                Выберите «Оружейная» выше.
-            </p>
-
-        </div>
-
-    </div>
+<div id="ordersList"></div>
 
 </section>
 
 
-<!-- О ПРОЕКТЕ -->
+<!-- PURCHASED -->
 
-<section class="section">
+<section id="purchased" class="page">
 
-    <div class="section-title">
+<div class="title">💿 Купленные продукты</div>
 
-        <h2>
-            📦 О проекте
-        </h2>
-
-        <p>
-            TNZ1ER52 SOFT — каталог наших проектов.
-            Новые обновления и софты будут
-            появляться постепенно.
-        </p>
-
-    </div>
+<div id="purchasedList"></div>
 
 </section>
 
 
-<footer>
+<!-- FAVORITES -->
 
-    © 2026
-    <span>
-        TNZ1ER52 SOFT
-    </span>
+<section id="favorites" class="page">
 
-    · Все права защищены
+<div class="title">❤️ Избранное</div>
 
-</footer>
+<div id="favoritesList"></div>
+
+</section>
+
+
+<!-- KEYS -->
+
+<section id="keys" class="page">
+
+<div class="title">🔑 Мои ключи</div>
+
+<div id="keysList"></div>
+
+</section>
+
+
+<!-- PROFILE -->
+
+<section id="profile" class="page">
+
+<div class="title">👤 Аккаунт</div>
+
+<div
+    class="profile card"
+    id="profileBox">
+</div>
+
+<div class="menu">
+
+<div class="menu-item"
+onclick="openPage('orders')">
+<span>📦</span>
+<span>История покупок</span>
+<span>›</span>
+</div>
+
+<div class="menu-item"
+onclick="openPage('favorites')">
+<span>❤️</span>
+<span>Избранное</span>
+<span id="favoriteCount">0</span>
+</div>
+
+<div class="menu-item"
+onclick="openPage('purchased')">
+<span>💿</span>
+<span>Купленные продукты</span>
+<span>›</span>
+</div>
+
+<div class="menu-item"
+onclick="openPage('keys')">
+<span>🔑</span>
+<span>Мои ключи</span>
+<span>›</span>
+</div>
+
+<div class="menu-item"
+onclick="openSettings()">
+<span>⚙️</span>
+<span>Настройки аккаунта</span>
+<span>›</span>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- NAV -->
+
+<nav class="navbar">
+
+<div class="nav active"
+data-page="home"
+onclick="openPage('home')">
+
+<span class="nav-icon">🏠</span>
+Главная
+
+</div>
+
+<div class="nav"
+data-page="cart"
+onclick="openPage('cart')">
+
+<span class="nav-icon">
+🛒
+<i class="cart-badge" id="cartBadge">0</i>
+</span>
+Корзина
+
+</div>
+
+<div class="nav"
+data-page="orders"
+onclick="openPage('orders')">
+
+<span class="nav-icon">📦</span>
+Заказы
+
+</div>
+
+<div class="nav"
+data-page="profile"
+onclick="openPage('profile')">
+
+<span class="nav-icon">👤</span>
+Профиль
+
+</div>
+
+</nav>
+
+</div>
+
+
+<!-- AUTH -->
+
+<div class="modal-bg" id="authModal">
+
+<div class="modal">
+
+<div class="modal-title">
+
+<h2>👤 Аккаунт</h2>
+
+<button class="close"
+onclick="closeModal('authModal')">
+×
+</button>
+
+</div>
+
+<div class="auth-tabs">
+
+<button
+id="registerTab"
+class="auth-tab active"
+onclick="switchAuth('register')">
+Регистрация
+</button>
+
+<button
+id="loginTab"
+class="auth-tab"
+onclick="switchAuth('login')">
+Вход
+</button>
+
+</div>
+
+<div
+id="registerForm"
+class="auth-form active">
+
+<div class="label">
+Придумайте ник
+</div>
+
+<input
+class="input"
+id="regNick"
+placeholder="Например tnz1er52"
+maxlength="20">
+
+<div class="label">
+Придумайте ID
+</div>
+
+<input
+class="input"
+id="regId"
+placeholder="Только цифры"
+inputmode="numeric"
+maxlength="12">
+
+<div class="label">
+Придумайте пароль
+</div>
+
+<input
+class="input"
+id="regPassword"
+type="password"
+placeholder="Введите пароль">
+
+<button
+class="submit"
+onclick="registerUser()">
+✨ Создать аккаунт
+</button>
+
+</div>
+
+<div
+id="loginForm"
+class="auth-form">
+
+<div class="label">
+Ваш ID
+</div>
+
+<input
+class="input"
+id="loginId"
+placeholder="Введите ID"
+inputmode="numeric">
+
+<div class="label">
+Пароль
+</div>
+
+<input
+class="input"
+id="loginPassword"
+type="password"
+placeholder="Введите пароль">
+
+<button
+class="submit"
+onclick="loginUser()">
+🔐 Войти
+</button>
+
+</div>
+
+</div>
+</div>
+
+
+<!-- PAYMENT -->
+
+<div class="modal-bg" id="paymentModal">
+
+<div class="modal">
+
+<div class="modal-title">
+
+<h2>💳 Оформление</h2>
+
+<button class="close"
+onclick="closeModal('paymentModal')">
+×
+</button>
+
+</div>
+
+<div class="order-product"
+style="
+display:flex;
+gap:10px;
+align-items:center;
+padding:13px;
+background:var(--card2);
+border-radius:14px">
+
+<div class="icon" id="payIcon">⛏️</div>
+
+<div>
+<b id="payName">Releon Client</b>
+<br>
+<span
+style="color:var(--muted);font-size:8px"
+id="payVersion">
+Версия 1.0
+</span>
+</div>
+
+</div>
+
+<div class="label">
+Игровой ник
+</div>
+
+<input
+class="input"
+id="gameNick"
+placeholder="Введите игровой ник">
+
+<div class="label">
+🎟️ Промокод
+</div>
+
+<div style="display:flex;gap:7px">
+
+<input
+class="input"
+id="promo"
+placeholder="TNZ10">
+
+<button
+class="buy"
+onclick="applyPromo()">
+Применить
+</button>
+
+</div>
+
+<div
+id="promoMessage"
+style="font-size:8px;margin-top:6px">
+</div>
+
+<div class="label">
+Способ оплаты
+</div>
+
+<div style="
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:7px">
+
+<button class="payment-method active"
+onclick="selectPayment(this,'card')">
+💳<br>
+Карта
+</button>
+
+<button class="payment-method"
+onclick="selectPayment(this,'sbp')">
+⚡<br>
+СБП
+</button>
+
+<button class="payment-method"
+onclick="selectPayment(this,'other')">
+💰<br>
+Другой
+</button>
+
+</div>
+
+<div class="price-box"
+style="
+padding:13px;
+margin-top:14px;
+border-radius:14px;
+background:var(--card2)">
+
+<div style="
+display:flex;
+justify-content:space-between;
+font-size:10px;
+color:var(--muted);
+margin-bottom:9px">
+
+Товар
+<span id="priceProduct">0 ₽</span>
+
+</div>
+
+<div style="
+display:flex;
+justify-content:space-between;
+font-size:10px;
+color:var(--muted);
+margin-bottom:9px">
+
+Скидка
+<span id="discount">0 ₽</span>
+
+</div>
+
+<div style="
+display:flex;
+justify-content:space-between;
+padding-top:10px;
+border-top:1px solid var(--border);
+font-weight:bold">
+
+Итого
+<b id="totalPrice">0 ₽</b>
+
+</div>
+
+</div>
+
+<label style="
+display:flex;
+gap:7px;
+align-items:center;
+margin-top:13px;
+font-size:9px;
+color:var(--muted)">
+
+<input type="checkbox" id="confirmOrder">
+
+Я проверил данные заказа
+
+</label>
+
+<button
+class="submit"
+onclick="confirmOrder()">
+Перейти к оплате →
+</button>
+
+</div>
+</div>
+
+
+<!-- SETTINGS -->
+
+<div class="modal-bg" id="settingsModal">
+
+<div class="modal">
+
+<div class="modal-title">
+
+<h2>⚙️ Настройки</h2>
+
+<button class="close"
+onclick="closeModal('settingsModal')">
+×
+</button>
+
+</div>
+
+<div class="label">
+Цветовая тема
+</div>
+
+<div class="theme-grid">
+
+<button
+class="theme purple"
+onclick="setTheme('purple')">
+🟣 Фиолетовая
+</button>
+
+<button
+class="theme blue"
+onclick="setTheme('blue')">
+🔵 Синяя
+</button>
+
+<button
+class="theme red"
+onclick="setTheme('red')">
+🔴 Красная
+</button>
+
+</div>
+
+<button
+class="light-switch"
+onclick="toggleLight()">
+
+<span>🌓 Тёмная / светлая</span>
+
+<b id="themeState">🌙</b>
+
+</button>
+
+</div>
+</div>
+
+
+<!-- SUCCESS -->
+
+<div class="modal-bg" id="successModal">
+
+<div class="modal success">
+
+<div class="success-icon">✓</div>
+
+<h2>Заказ создан</h2>
+
+<p style="
+color:var(--muted);
+font-size:10px;
+margin-top:8px">
+
+Оплата в демо-версии не подключена.
+
+</p>
+
+<div class="card"
+style="padding:15px;margin-top:15px">
+
+<span style="
+color:var(--muted);
+font-size:8px">
+Номер заказа
+</span>
+
+<b
+id="successOrder"
+style="
+display:block;
+margin-top:5px">
+—
+</b>
+
+</div>
+
+<button
+class="submit"
+onclick="
+closeModal('successModal');
+openPage('orders');
+">
+📦 Мой заказ
+</button>
+
+</div>
+</div>
+
+
+<div class="toast" id="toast"></div>
 
 
 <script>
 
-/* ТЕМЫ */
+/* ================= PRODUCTS ================= */
 
-function setTheme(theme) {
+const products = [
 
-    document.body.classList.remove(
-        "white",
-        "dark",
-        "neon",
-        "red",
-        "blue",
-        "yellow",
-        "brown",
-        "weapon"
+{
+id:"releon",
+name:"Releon Client",
+version:"1.0",
+icon:"⛏️",
+price:0,
+status:"available",
+statusText:"🟢 Доступен",
+description:"Релиз уже вышел. Продукт доступен для скачивания.",
+available:true
+},
+
+{
+id:"evolution",
+name:"Project Evolution",
+version:"1.0",
+icon:"⚡",
+price:80,
+status:"soon",
+statusText:"🟡 Скоро релиз",
+description:"Наш проект ещё находится в разработке.",
+available:false
+},
+
+{
+id:"standleo",
+name:"Standleo",
+version:"1.0",
+icon:"◆",
+price:65,
+status:"soon",
+statusText:"🟡 Скоро релиз",
+description:"Наш проект ещё находится в разработке.",
+available:false
+},
+
+{
+id:"standknife",
+name:"StandKnife",
+version:"Beta",
+icon:"✦",
+price:65,
+status:"dev",
+statusText:"🟡 В разработке",
+description:"Наш проект находится в разработке.",
+available:false
+}
+
+];
+
+let selectedProduct=null;
+let discount=0;
+let paymentMethod="card";
+
+
+/* ================= STORAGE ================= */
+
+function getUser(){
+    return JSON.parse(
+        localStorage.getItem("tnz_current_user") || "null"
     );
+}
 
-    document.body.classList.add(theme);
+function getUsers(){
+    return JSON.parse(
+        localStorage.getItem("tnz_users") || "[]"
+    );
+}
 
+function saveUsers(users){
     localStorage.setItem(
-        "tnzTheme",
-        theme
+        "tnz_users",
+        JSON.stringify(users)
+    );
+}
+
+function getOrders(){
+    return JSON.parse(
+        localStorage.getItem("tnz_orders") || "[]"
+    );
+}
+
+function saveOrders(orders){
+    localStorage.setItem(
+        "tnz_orders",
+        JSON.stringify(orders)
+    );
+}
+
+function getFavorites(){
+    return JSON.parse(
+        localStorage.getItem("tnz_favorites") || "[]"
+    );
+}
+
+function getCart(){
+    return JSON.parse(
+        localStorage.getItem("tnz_cart") || "[]"
+    );
+}
+
+function saveCart(cart){
+    localStorage.setItem(
+        "tnz_cart",
+        JSON.stringify(cart)
     );
 }
 
 
-/* РАЗМЕР ТЕКСТА */
+/* ================= NAV ================= */
 
-function setFont(size) {
-
-    document.body.classList.remove(
-        "font-small",
-        "font-medium",
-        "font-large"
-    );
-
-    document.body.classList.add(size);
-
-    localStorage.setItem(
-        "tnzFont",
-        size
-    );
-}
-
-
-/* ПЕРЕХОД К НАСТРОЙКАМ */
-
-function scrollToSettings() {
+function openPage(page){
 
     document
-        .getElementById("settings")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+    .querySelectorAll(".page")
+    .forEach(x=>x.classList.remove("active"));
 
+    const el=document.getElementById(page);
+
+    if(el) el.classList.add("active");
+
+    document
+    .querySelectorAll(".nav")
+    .forEach(x=>{
+        x.classList.remove("active");
+
+        if(x.dataset.page===page){
+            x.classList.add("active");
+        }
+    });
+
+    if(page==="cart") renderCart();
+    if(page==="orders") renderOrders();
+    if(page==="purchased") renderPurchased();
+    if(page==="favorites") renderFavorites();
+    if(page==="keys") renderKeys();
+    if(page==="profile") updateProfile();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
-/* СОХРАНЕНИЕ НАСТРОЕК */
+/* ================= PRODUCTS ================= */
 
-window.addEventListener(
-    "load",
-    function() {
+function renderProducts(list=products){
 
-        const savedTheme =
-            localStorage.getItem("tnzTheme");
+    const box=document.getElementById("products");
 
-        const savedFont =
-            localStorage.getItem("tnzFont");
+    box.innerHTML="";
 
-        if (savedTheme) {
+    list.forEach(p=>{
 
-            document.body.classList.remove(
-                "white",
-                "dark",
-                "neon",
-                "red",
-                "blue",
-                "yellow",
-                "brown",
-                "weapon"
-            );
+        const favorite=getFavorites().includes(p.id);
 
-            document.body.classList.add(
-                savedTheme
-            );
+        let button="";
 
+        if(p.available){
+
+            button=`
+            <button
+                class="buy"
+                onclick="buy('${p.id}')">
+                📥 Скачать
+            </button>
+            `;
+
+        }else{
+
+            button=`
+            <button
+                class="buy disabled"
+                onclick="showReleaseInfo('${p.id}')">
+                ⏳ Недоступно
+            </button>
+            `;
         }
 
-        if (savedFont) {
+        box.innerHTML+=`
 
-            document.body.classList.remove(
-                "font-small",
-                "font-medium",
-                "font-large"
-            );
+        <div class="product card">
 
-            document.body.classList.add(
-                savedFont
-            );
+            <div class="product-top">
 
-        }
+                <div class="icon">
+                    ${p.icon}
+                </div>
 
+                <div>
+
+                    <div class="product-name">
+                        ${escapeHTML(p.name)}
+                    </div>
+
+                    <div class="version">
+                        Версия ${escapeHTML(p.version)}
+                    </div>
+
+                </div>
+
+                <div class="status ${p.status}">
+                    ${p.statusText}
+                </div>
+
+            </div>
+
+            <div class="description">
+                ${escapeHTML(p.description)}
+            </div>
+
+            <div class="product-bottom">
+
+                <div class="price">
+                    ${p.available ? "Бесплатно" : "Скоро"}
+                </div>
+
+                <div>
+
+                    <button
+                        onclick="favorite('${p.id}')"
+                        style="
+                        border:0;
+                        background:none;
+                        font-size:19px;
+                        color:var(--text);
+                        cursor:pointer">
+                        ${favorite ? "❤️" : "♡"}
+                    </button>
+
+                    ${button}
+
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+    });
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchProducts(){
+
+    const q=document
+    .getElementById("search")
+    .value
+    .toLowerCase();
+
+    renderProducts(
+        products.filter(p=>
+            p.name.toLowerCase().includes(q)
+        )
+    );
+}
+
+
+/* ================= FILTER ================= */
+
+function filterProducts(type,btn){
+
+    document
+    .querySelectorAll(".filter")
+    .forEach(x=>x.classList.remove("active"));
+
+    btn.classList.add("active");
+
+    if(type==="all"){
+        renderProducts();
+        return;
     }
-);
+
+    renderProducts(
+        products.filter(p=>p.status===type)
+    );
+}
+
+
+/* ================= RELEASE ================= */
+
+function showReleaseInfo(id){
+
+    const p=products.find(x=>x.id===id);
+
+    if(!p) return;
+
+    if(p.status==="dev"){
+        toast("🛠 "+p.name+" ещё в разработке");
+    }else{
+        toast("🟡 "+p.name+" — скоро релиз");
+    }
+}
+
+
+/* ================= FAVORITES ================= */
+
+function favorite(id){
+
+    let favorites=getFavorites();
+
+    if(favorites.includes(id)){
+
+        favorites=favorites.filter(
+            x=>x!==id
+        );
+
+        toast("♡ Убрано из избранного");
+
+    }else{
+
+        favorites.push(id);
+
+        toast("❤️ Добавлено в избранное");
+    }
+
+    localStorage.setItem(
+        "tnz_favorites",
+        JSON.stringify(favorites)
+    );
+
+    renderProducts();
+    updateProfile();
+}
+
+function renderFavorites(){
+
+    const box=document.getElementById(
+        "favoritesList"
+    );
+
+    const ids=getFavorites();
+
+    const list=products.filter(
+        p=>ids.includes(p.id)
+    );
+
+    if(!list.length){
+
+        box.innerHTML=`
+        <div class="empty card">
+            ❤️<br><br>
+            Избранное пустое
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    list.forEach(p=>{
+
+        box.innerHTML+=`
+
+        <div class="product card">
+
+            <div class="product-top">
+
+                <div class="icon">
+                    ${p.icon}
+                </div>
+
+                <div>
+                    <div class="product-name">
+                        ${escapeHTML(p.name)}
+                    </div>
+
+                    <div class="version">
+                        ${p.version}
+                    </div>
+                </div>
+
+                <div class="status ${p.status}">
+                    ${p.statusText}
+                </div>
+
+            </div>
+
+            <div class="description">
+                ${escapeHTML(p.description)}
+            </div>
+
+            ${
+                p.available
+                ?
+                `<button
+                    class="action"
+                    onclick="buy('${p.id}')">
+                    📥 Скачать
+                </button>`
+                :
+                `<button
+                    class="action"
+                    onclick="showReleaseInfo('${p.id}')">
+                    ⏳ Недоступно
+                </button>`
+            }
+
+        </div>
+        `;
+    });
+}
+
+
+/* ================= BUY ================= */
+
+function buy(id){
+
+    const p=products.find(
+        x=>x.id===id
+    );
+
+    if(!p) return;
+
+    if(!p.available){
+
+        showReleaseInfo(id);
+
+        return;
+    }
+
+    /*
+       Если Releon бесплатный,
+       сразу открываем скачивание.
+    */
+
+    if(p.price===0){
+
+        downloadReleon();
+
+        return;
+    }
+
+    selectedProduct=p;
+
+    openPayment();
+}
+
+
+/* ================= CART ================= */
+
+function addToCart(id){
+
+    const p=products.find(
+        x=>x.id===id
+    );
+
+    if(!p || !p.available){
+
+        toast("⏳ Этот проект ещё недоступен");
+
+        return;
+    }
+
+    const cart=getCart();
+
+    if(!cart.includes(id)){
+        cart.push(id);
+    }
+
+    saveCart(cart);
+
+    updateCartBadge();
+
+    toast("🛒 Добавлено");
+}
+
+function removeFromCart(id){
+
+    saveCart(
+        getCart().filter(
+            x=>x!==id
+        )
+    );
+
+    renderCart();
+    updateCartBadge();
+}
+
+function renderCart(){
+
+    const box=document.getElementById(
+        "cartList"
+    );
+
+    const cart=getCart();
+
+    if(!cart.length){
+
+        box.innerHTML=`
+        <div class="empty card">
+            🛒<br><br>
+            Корзина пустая
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    cart.forEach(id=>{
+
+        const p=products.find(
+            x=>x.id===id
+        );
+
+        if(!p || !p.available) return;
+
+        box.innerHTML+=`
+
+        <div class="card"
+            style="
+            padding:14px;
+            margin-bottom:9px;
+            display:flex;
+            align-items:center;
+            gap:10px">
+
+            <div class="icon">
+                ${p.icon}
+            </div>
+
+            <div style="flex:1">
+
+                <b>
+                    ${escapeHTML(p.name)}
+                </b>
+
+                <div style="
+                color:var(--muted);
+                font-size:8px;
+                margin-top:5px">
+                    ${p.price} ₽
+                </div>
+
+            </div>
+
+            <button
+                class="remove"
+                onclick="removeFromCart('${p.id}')"
+                style="
+                border:0;
+                background:none;
+                color:var(--red);
+                cursor:pointer">
+                ✕
+            </button>
+
+        </div>
+        `;
+    });
+}
+
+function updateCartBadge(){
+
+    const count=getCart().length;
+
+    const badge=document.getElementById(
+        "cartBadge"
+    );
+
+    badge.innerText=count;
+
+    badge.style.display=
+        count ? "flex" : "none";
+}
+
+
+/* ================= PAYMENT ================= */
+
+function openPayment(){
+
+    if(!selectedProduct) return;
+
+    document.getElementById(
+        "payName"
+    ).innerText=selectedProduct.name;
+
+    document.getElementById(
+        "payVersion"
+    ).innerText=
+        "Версия "+selectedProduct.version;
+
+    document.getElementById(
+        "payIcon"
+    ).innerText=selectedProduct.icon;
+
+    document.getElementById(
+        "priceProduct"
+    ).innerText=
+        selectedProduct.price+" ₽";
+
+    discount=0;
+
+    updatePrice();
+
+    document
+    .getElementById("paymentModal")
+    .classList.add("show");
+}
+
+function selectPayment(btn,type){
+
+    paymentMethod=type;
+
+    document
+    .querySelectorAll(".payment-method")
+    .forEach(x=>
+        x.classList.remove("active")
+    );
+
+    btn.classList.add("active");
+}
+
+function applyPromo(){
+
+    const code=document
+    .getElementById("promo")
+    .value
+    .trim()
+    .toUpperCase();
+
+    const codes={
+        TNZ10:10,
+        WELCOME:10,
+        TNZQASAQ:15
+    };
+
+    if(codes[code]){
+
+        discount=Math.round(
+            selectedProduct.price*
+            codes[code]/100
+        );
+
+        document.getElementById(
+            "promoMessage"
+        ).innerHTML=`
+        <span style="color:var(--green)">
+        ✅ Скидка ${codes[code]}%
+        </span>`;
+
+    }else{
+
+        discount=0;
+
+        document.getElementById(
+            "promoMessage"
+        ).innerHTML=`
+        <span style="color:var(--red)">
+        ❌ Промокод не найден
+        </span>`;
+    }
+
+    updatePrice();
+}
+
+function updatePrice(){
+
+    const total=Math.max(
+        0,
+        selectedProduct.price-discount
+    );
+
+    document.getElementById(
+        "discount"
+    ).innerText=
+        discount+" ₽";
+
+    document.getElementById(
+        "totalPrice"
+    ).innerText=
+        total+" ₽";
+}
+
+function confirmOrder(){
+
+    const user=getUser();
+
+    if(!user){
+
+        toast("👤 Сначала войдите в аккаунт");
+
+        closeModal("paymentModal");
+
+        openAuth();
+
+        return;
+    }
+
+    const nick=document
+    .getElementById("gameNick")
+    .value.trim();
+
+    if(!nick){
+
+        toast("Введите игровой ник");
+
+        return;
+    }
+
+    if(!document
+        .getElementById("confirmOrder")
+        .checked){
+
+        toast("Подтвердите заказ");
+
+        return;
+    }
+
+    const total=Math.max(
+        0,
+        selectedProduct.price-discount
+    );
+
+    const order={
+
+        id:"TNZ-"+Date.now(),
+
+        userId:user.id,
+
+        product:selectedProduct.name,
+
+        productId:selectedProduct.id,
+
+        nick:nick,
+
+        price:total,
+
+        payment:paymentMethod,
+
+        status:"Ожидает оплаты",
+
+        date:new Date()
+        .toLocaleString("ru-RU"),
+
+        paid:false,
+
+        key:null
+    };
+
+    const orders=getOrders();
+
+    orders.push(order);
+
+    saveOrders(orders);
+
+    closeModal("paymentModal");
+
+    document.getElementById(
+        "successOrder"
+    ).innerText=order.id;
+
+    document
+    .getElementById("successModal")
+    .classList.add("show");
+
+    renderOrders();
+}
+
+
+/* ================= ORDERS ================= */
+
+function renderOrders(){
+
+    const box=document.getElementById(
+        "ordersList"
+    );
+
+    const user=getUser();
+
+    if(!user){
+
+        box.innerHTML=`
+        <div class="empty card">
+            🔐<br><br>
+            Войдите в аккаунт,
+            чтобы видеть историю покупок.
+
+            <button
+                class="action"
+                onclick="openAuth()">
+                👤 Войти
+            </button>
+        </div>`;
+
+        return;
+    }
+
+    const orders=getOrders().filter(
+        x=>x.userId===user.id
+    );
+
+    if(!orders.length){
+
+        box.innerHTML=`
+        <div class="empty card">
+            📦<br><br>
+            Заказов пока нет
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    [...orders].reverse()
+    .forEach(order=>{
+
+        box.innerHTML+=`
+
+        <div class="card"
+        style="
+        padding:15px;
+        margin-bottom:10px">
+
+            <b>
+                ${escapeHTML(order.product)}
+            </b>
+
+            <div style="
+            color:var(--muted);
+            font-size:8px;
+            margin-top:7px">
+                Заказ: ${order.id}
+            </div>
+
+            <div style="
+            color:var(--muted);
+            font-size:8px;
+            margin-top:4px">
+                ${order.date}
+            </div>
+
+            <div style="
+            margin-top:10px;
+            color:var(--yellow);
+            font-size:9px">
+                ⏳ ${order.status}
+            </div>
+
+            <div style="
+            margin-top:10px;
+            font-size:12px">
+                ${order.price} ₽
+            </div>
+
+            <button
+                class="action"
+                onclick="receipt('${order.id}')">
+                🧾 Открыть чек
+            </button>
+
+        </div>
+        `;
+    });
+}
+
+
+/* ================= RECEIPT ================= */
+
+function receipt(id){
+
+    const order=getOrders().find(
+        x=>x.id===id
+    );
+
+    if(!order) return;
+
+    alert(
+`TNZQASAQ STORE
+
+ЧЕК
+
+Заказ: ${order.id}
+Товар: ${order.product}
+Игровой ник: ${order.nick}
+Сумма: ${order.price} ₽
+Способ оплаты: ${order.payment}
+
+Статус: ${order.status}`
+    );
+}
+
+
+/* ================= PURCHASED ================= */
+
+function renderPurchased(){
+
+    const box=document.getElementById(
+        "purchasedList"
+    );
+
+    const user=getUser();
+
+    if(!user){
+
+        box.innerHTML=`
+        <div class="empty card">
+            🔐<br><br>
+            Войдите в аккаунт.
+        </div>`;
+
+        return;
+    }
+
+    const orders=getOrders().filter(
+        x=>
+            x.userId===user.id &&
+            x.paid===true
+    );
+
+    if(!orders.length){
+
+        box.innerHTML=`
+        <div class="empty card">
+            💿<br><br>
+            Купленных продуктов пока нет.
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    orders.forEach(order=>{
+
+        box.innerHTML+=`
+
+        <div class="card"
+        style="
+        padding:15px;
+        margin-bottom:10px">
+
+            <b>
+                ${escapeHTML(order.product)}
+            </b>
+
+            <div style="
+            color:var(--green);
+            font-size:9px;
+            margin-top:7px">
+                🟢 Покупка подтверждена
+            </div>
+
+            <button
+                class="action"
+                onclick="redownload('${order.productId}')">
+                🔄 Скачать повторно
+            </button>
+
+        </div>
+        `;
+    });
+}
+
+function redownload(id){
+
+    if(id==="releon"){
+
+        downloadReleon();
+
+    }else{
+
+        toast(
+            "📥 Повторная загрузка после релиза"
+        );
+    }
+}
+
+
+/* ================= KEYS ================= */
+
+function generateKey(){
+
+    const chars=
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+    let key="TNZQ-";
+
+    for(let i=0;i<16;i++){
+
+        key+=chars[
+            Math.floor(
+                Math.random()*chars.length
+            )
+        ];
+
+        if(
+            i===3 ||
+            i===7 ||
+            i===11
+        ){
+            key+="-";
+        }
+    }
+
+    return key;
+}
+
+function renderKeys(){
+
+    const box=document.getElementById(
+        "keysList"
+    );
+
+    const user=getUser();
+
+    if(!user){
+
+        box.innerHTML=`
+        <div class="empty card">
+
+            🔐<br><br>
+
+            Войдите в аккаунт,
+            чтобы увидеть свои ключи.
+
+            <button
+                class="action"
+                onclick="openAuth()">
+                👤 Войти
+            </button>
+
+        </div>`;
+
+        return;
+    }
+
+    const orders=getOrders().filter(
+        x=>
+            x.userId===user.id &&
+            x.paid===true
+    );
+
+    if(!orders.length){
+
+        box.innerHTML=`
+        <div class="empty card">
+
+            🔑<br><br>
+
+            Активных ключей пока нет.
+
+            <button
+                class="action"
+                onclick="openPage('home')">
+                🛍 Перейти в каталог
+            </button>
+
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    orders.forEach(order=>{
+
+        if(!order.key){
+
+            order.key=generateKey();
+        }
+
+        box.innerHTML+=`
+
+        <div class="card"
+        style="
+        padding:16px;
+        margin-bottom:10px">
+
+            <div style="
+            display:flex;
+            align-items:center;
+            gap:10px">
+
+                <div class="icon">
+                    🔑
+                </div>
+
+                <div>
+
+                    <b>
+                        ${escapeHTML(order.product)}
+                    </b>
+
+                    <div style="
+                    color:var(--green);
+                    font-size:8px;
+                    margin-top:5px">
+                        🟢 Лицензия активна
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="key">
+                ${order.key}
+            </div>
+
+            <button
+                class="action"
+                onclick="copyKey('${order.key}')">
+                📋 Скопировать ключ
+            </button>
+
+        </div>
+        `;
+    });
+
+    saveOrders(
+        getOrders().map(order=>{
+
+            const match=orders.find(
+                x=>x.id===order.id
+            );
+
+            return match || order;
+        })
+    );
+}
+
+function copyKey(key){
+
+    navigator.clipboard.writeText(key);
+
+    toast("🔑 Ключ скопирован");
+}
+
+
+/* ================= PROFILE ================= */
+
+function updateProfile(){
+
+    const box=document.getElementById(
+        "profileBox"
+    );
+
+    const user=getUser();
+
+    if(!user){
+
+        box.innerHTML=`
+
+        <div class="avatar">
+            ?
+        </div>
+
+        <div class="profile-name">
+            Гость
+        </div>
+
+        <div class="profile-id">
+            Войдите или зарегистрируйтесь
+        </div>
+
+        <button
+            class="action"
+            onclick="openAuth()">
+            👤 Регистрация / Вход
+        </button>
+        `;
+
+        document.getElementById(
+            "headerAvatar"
+        ).innerText="?";
+
+        return;
+    }
+
+    const orders=getOrders().filter(
+        x=>x.userId===user.id
+    );
+
+    const purchased=orders.filter(
+        x=>x.paid===true
+    );
+
+    box.innerHTML=`
+
+    <div class="avatar">
+        ${escapeHTML(
+            user.nick.charAt(0).toUpperCase()
+        )}
+    </div>
+
+    <div class="profile-name">
+        ${escapeHTML(user.nick)}
+    </div>
+
+    <div class="profile-id">
+        ID: ${escapeHTML(user.id)}
+    </div>
+
+    <div class="profile-grid">
+
+        <div class="profile-stat">
+            <b>0 ₽</b>
+            <span>Баланс</span>
+        </div>
+
+        <div class="profile-stat">
+            <b>${orders.length}</b>
+            <span>Заказов</span>
+        </div>
+
+        <div class="profile-stat">
+            <b>${purchased.length}</b>
+            <span>Куплено</span>
+        </div>
+
+        <div class="profile-stat">
+            <b>${purchased.length}</b>
+            <span>Активные лицензии</span>
+        </div>
+
+    </div>
+
+    <button
+        class="action"
+        onclick="logout()">
+        🚪 Выйти
+    </button>
+    `;
+
+    document.getElementById(
+        "headerAvatar"
+    ).innerText=
+        user.nick.charAt(0).toUpperCase();
+
+    document.getElementById(
+        "favoriteCount"
+    ).innerText=
+        getFavorites().length;
+}
+
+
+/* ================= AUTH ================= */
+
+function openAuth(){
+
+    document
+    .getElementById("authModal")
+    .classList.add("show");
+}
+
+function switchAuth(type){
+
+    const reg=type==="register";
+
+    document.getElementById(
+        "registerForm"
+    ).classList.toggle(
+        "active",
+        reg
+    );
+
+    document.getElementById(
+        "loginForm"
+    ).classList.toggle(
+        "active",
+        !reg
+    );
+
+    document.getElementById(
+        "registerTab"
+    ).classList.toggle(
+        "active",
+        reg
+    );
+
+    document.getElementById(
+        "loginTab"
+    ).classList.toggle(
+        "active",
+        !reg
+    );
+}
+
+function registerUser(){
+
+    const nick=document
+    .getElementById("regNick")
+    .value.trim();
+
+    const id=document
+    .getElementById("regId")
+    .value.trim();
+
+    const password=document
+    .getElementById("regPassword")
+    .value;
+
+    if(!nick){
+
+        toast("Введите ник");
+
+        return;
+    }
+
+    if(!/^[0-9]+$/.test(id)){
+
+        toast(
+            "ID должен содержать только цифры"
+        );
+
+        return;
+    }
+
+    if(password.length<4){
+
+        toast(
+            "Пароль минимум 4 символа"
+        );
+
+        return;
+    }
+
+    const users=getUsers();
+
+    if(users.some(x=>x.id===id)){
+
+        toast("Этот ID уже занят");
+
+        return;
+    }
+
+    const user={
+        nick:nick,
+        id:id,
+        password:password
+    };
+
+    users.push(user);
+
+    saveUsers(users);
+
+    localStorage.setItem(
+        "tnz_current_user",
+        JSON.stringify(user)
+    );
+
+    closeModal("authModal");
+
+    updateProfile();
+
+    toast("✅ Аккаунт создан");
+}
+
+function loginUser(){
+
+    const id=document
+    .getElementById("loginId")
+    .value.trim();
+
+    const password=document
+    .getElementById("loginPassword")
+    .value;
+
+    const users=getUsers();
+
+    const user=users.find(
+        x=>
+            x.id===id &&
+            x.password===password
+    );
+
+    if(!user){
+
+        toast(
+            "❌ Неверный ID или пароль"
+        );
+
+        return;
+    }
+
+    localStorage.setItem(
+        "tnz_current_user",
+        JSON.stringify(user)
+    );
+
+    closeModal("authModal");
+
+    updateProfile();
+
+    toast(
+        "👋 Добро пожаловать, "+
+        user.nick
+    );
+}
+
+function logout(){
+
+    localStorage.removeItem(
+        "tnz_current_user"
+    );
+
+    updateProfile();
+
+    toast("🚪 Вы вышли");
+}
+
+
+/* ================= SETTINGS ================= */
+
+function openSettings(){
+
+    document
+    .getElementById("settingsModal")
+    .classList.add("show");
+}
+
+function setTheme(theme){
+
+    document.body.classList.remove(
+        "blue",
+        "red"
+    );
+
+    if(theme==="blue"){
+        document.body.classList.add("blue");
+    }
+
+    if(theme==="red"){
+        document.body.classList.add("red");
+    }
+
+    localStorage.setItem(
+        "tnz_theme",
+        theme
+    );
+
+    toast("🎨 Тема изменена");
+}
+
+function toggleLight(){
+
+    document.body.classList.toggle(
+        "light"
+    );
+
+    const light=document.body
+        .classList.contains("light");
+
+    localStorage.setItem(
+        "tnz_light",
+        light
+    );
+
+    document.getElementById(
+        "themeState"
+    ).innerText=
+        light ? "☀️" : "🌙";
+}
+
+
+/* ================= MODALS ================= */
+
+function closeModal(id){
+
+    document
+    .getElementById(id)
+    .classList.remove("show");
+}
+
+
+/* ================= TOAST ================= */
+
+let toastTimer;
+
+function toast(text){
+
+    const t=document.getElementById(
+        "toast"
+    );
+
+    t.innerText=text;
+
+    t.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer=setTimeout(()=>{
+        t.classList.remove("show");
+    },2200);
+}
+
+
+/* ================= DOWNLOAD ================= */
+
+function downloadReleon(){
+
+    window.open(
+        "https://drive.google.com/file/d/1DW-LTLa6w1fZ3WEepnjPbISW6iHAG8So/view?usp=drive_link",
+        "_blank"
+    );
+}
+
+
+/* ================= ESCAPE ================= */
+
+function escapeHTML(text){
+
+    return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+}
+
+
+/* ================= START ================= */
+
+const savedTheme=
+    localStorage.getItem("tnz_theme");
+
+if(savedTheme==="blue"){
+    document.body.classList.add("blue");
+}
+
+if(savedTheme==="red"){
+    document.body.classList.add("red");
+}
+
+if(
+    localStorage.getItem("tnz_light")==="true"
+){
+
+    document.body.classList.add("light");
+
+    document.getElementById(
+        "themeState"
+    ).innerText="☀️";
+}
+
+renderProducts();
+updateProfile();
+updateCartBadge();
 
 </script>
 
